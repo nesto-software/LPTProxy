@@ -13,8 +13,7 @@
 #include <sched.h>
 #include <sys/resource.h>
 #include <unistd.h>
-#include <time.h> 
-#include <SDL2/SDL.h>
+#include <time.h>
 
 #include <termios.h> 
 #include <wiringPi.h>

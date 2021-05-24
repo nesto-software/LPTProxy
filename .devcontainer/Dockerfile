@@ -25,11 +25,3 @@ RUN git clone https://github.com/WiringPi/WiringPi.git /tmp/wiringpi \
     && cd wiringPi \
     && CC=${TOOLCHAIN}-gcc make \
     && DESTDIR=${STAGING_DIR} make install
-
-# sdl:
-RUN git clone https://github.com/libsdl-org/SDL.git /tmp/libsdl \
-    && cd /tmp/libsdl \
-    && git checkout release-2.0.14 \
-    && CC=${TOOLCHAIN}-gcc ./configure --host=$TOOLCHAIN --prefix=${STAGING_DIR}/usr/local \
-    && make \
-    && make install
