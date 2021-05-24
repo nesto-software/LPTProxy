@@ -224,7 +224,7 @@ int wait_until_online(int offlineswitchControl)
             // printf(" offline\n");
             if (controlOnlineLed) led_off("red"); // Online LED
             if (controlAckLed) led_off("green"); // Ack LED
-            if (controlPowerLed) pokePacketWord(200,1); // Signal the conversion program that it can control leds
+            //if (controlPowerLed) pokePacketWord(200,1); // Signal the conversion program that it can control leds
             while (g) {
                 // Wait for user to turn retro-printer back online
                 usleep(1000*10);
@@ -313,7 +313,7 @@ int read_byte_from_gpio(unsigned char *bytex)
     clock_gettime(CLOCK_MONOTONIC, &start);
     ms_start = (double) start.tv_sec * 1000 + 1.0e-6*start.tv_nsec;
     databyte = 0;
-    if (controlPowerLed) pokePacketWord(200,2); // Signal the conversion program that capture program is controlling leds
+    //if (controlPowerLed) pokePacketWord(200,2); // Signal the conversion program that capture program is controlling leds
 
     if (digitalRead(ipins[0]) > 0) databyte |= 1;
     if (digitalRead(ipins[1]) > 0) databyte |= 2;
@@ -394,10 +394,10 @@ int read_interface()
     int bytesRead = 0;
     int bytesCaptured = 0;
 
-    strcpy(pathraw,path);
+    strcpy(pathraw,"/home/pi/");
     strcat(pathraw,"raw/");
 
-    initialize_interface_comms();
+    //initialize_interface_comms();
     initialize();
 
     // Wait until the unit is switched online
