@@ -38,6 +38,16 @@ Install via GitHub Releases Download (binary)
 | **curl**  | `bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/LPTProxy/master/scripts/install-from-release.sh)"` |
 | **wget**  | `bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/LPTProxy/master/scripts/install-from-release.sh)"`   |
 
+Usage
+-----
+
+```bash
+lptproxy
+```
+
+Note: Currently the application only writes the incoming data into files in */home/pi/raw/*.   
+For active development look into the [initial implementation milestone](https://github.com/nesto-software/LPTProxy/milestone/1).
+
 Contributors
 ------------ 
 
