@@ -12,4 +12,4 @@ curl -s https://api.github.com/repos/nesto-software/LPTProxy/releases/latest \
 | wget -qi - -O "$FILE"
 
 echo "Installing binary..."
-sudo cp "${FILE}" "/usr/bin/lptproxy"
+sudo install -m 755 "${FILE}" "/usr/bin/lptproxy"
