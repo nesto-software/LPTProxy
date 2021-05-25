@@ -5,6 +5,7 @@ LPT Proxy for Raspberry Pi (armhf)
   <img src=".github/imgs/project_logo.png">
 </p>
 
+[![.github/workflows/build-app-release.yaml](https://github.com/nesto-software/LPTProxy/actions/workflows/build-lptproxy.yml/badge.svg)](https://github.com/nesto-software/LPTProxy/actions/workflows/build-lptproxy.yml)
 [![https://github.com/nesto-software/ProxySuite](https://img.shields.io/badge/part%20of-ProxySuite-blue)](https://github.com/nesto-software/ProxySuite)
 
 Approach
