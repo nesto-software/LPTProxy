@@ -30,10 +30,8 @@ Development Status
 
 </table>
 
-We are currently doing some research on how to integrate older printers into the ProxySuite.
-There is not much documentation on the internet about it.
-We are working on a proxy solution in software (i.e. forwarding data using the pi's CPU) which integrates <a href="https://www.retroprinter.com/">Retro-Printer</a> modules.
+Contributors
+------------ 
 
-If you want to participate, feel free to reach out!
- 
-Martin Löper `<martin.loeper@nesto-software.de>`
+- Rich Mellor
+- Martin Löper `<martin.loeper@nesto-software.de>`
