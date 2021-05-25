@@ -1,0 +1,61 @@
+name: Build lptproxy
+on:
+  push:
+    paths-ignore:
+      - '.devcontainer/**'
+    branches: master
+  workflow_dispatch:
+
+jobs:
+  build-tcpflow-gg:
+    runs-on: 'ubuntu-20.04'
+    container:
+      image: ghcr.io/${{ github.repository_owner }}/lpt-proxy-dev:latest
+      credentials:
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.CR_PAT }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Build lptproxy
+        working-directory: src
+        run: |
+          make lptproxy
+
+      #- name: Build lptproxy-gg
+      #  working-directory: src
+      #  run: |
+      #    make lptproxy-gg
+
+      #- name: Create greengrass deployment package
+      #  working-directory: src
+      #  run: |
+      #    zip lptproxy-gg.zip lptproxy-gg
+
+      - name: Upload Release Asset - Non-Greengrass Version
+        uses: actions/upload-artifact@v2
+        with:
+          name: non-greengrass-binary
+          path: |
+            src/lptproxy
+    
+      #- name: Upload Release Asset - Greengrass Deployment Package
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: greengrass-deployment-package
+      #    path: |
+      #      src/lptproxy-gg.zip
+
+      - name: Release via gh releases with latest tag
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: latest
+          prerelease: false
+          title: LPTProxy - Latest Binary Release
+          files: |
+            src/lptproxy
