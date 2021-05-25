@@ -4,6 +4,9 @@ set -e
 
 FILE=/tmp/lptproxy
 
+# install deps if not available
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/LPTProxy/master/scripts/install-dependencies.sh)"
+
 echo "Downloading lptproxy binary from latest GitHub release..."
 curl -s https://api.github.com/repos/nesto-software/LPTProxy/releases/latest \
 | grep "browser_download_url.*lptproxy" \
