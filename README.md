@@ -30,6 +30,14 @@ Development Status
 
 </table>
 
+Install via GitHub Releases Download (binary)
+---------------------------------------------
+
+| Method    | Command                                                                                           |
+|:----------|:--------------------------------------------------------------------------------------------------|
+| **curl**  | `bash -c "$(curl -fsSL https://raw.githubusercontent.com/nesto-software/LPTProxy/master/scripts/install-from-release.sh)"` |
+| **wget**  | `bash -c "$(wget -O- https://raw.githubusercontent.com/nesto-software/LPTProxy/master/scripts/install-from-release.sh)"`   |
+
 Contributors
 ------------ 
 
