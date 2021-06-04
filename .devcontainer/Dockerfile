@@ -3,16 +3,20 @@
 # [Choice] Debian / Ubuntu version: debian-10, debian-9, ubuntu-20.04, ubuntu-18.04
 ARG VARIANT="buster"
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+LABEL org.opencontainers.image.source https://github.com/nesto-software/LPTProxy
 
-ADD https://raw.githubusercontent.com/nesto-software/SerialProxy/master/scripts/install-cross-toolchain-armhf.sh \
+ENV TOOLCHAIN_RELEASE=rpi-5.10.y
+
+ADD https://raw.githubusercontent.com/nesto-software/cross-toolchain-armhf/master/scripts/install-from-release.sh \
     /tmp/install-cross-toolchain-armhf.sh
 
 RUN chmod +x /tmp/install-cross-toolchain-armhf.sh \
-    && /tmp/install-cross-toolchain-armhf.sh
+    && /tmp/install-cross-toolchain-armhf.sh $TOOLCHAIN_RELEASE
 
-ENV TOOLCHAIN arm-unknown-linux-gnueabi
 ENV STAGING_DIR /usr/raspberry-build/staging
-ENV PATH="/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin:${PATH}"
+ENV TOOLCHAIN=arm-unknown-linux-gnueabi
+ENV TOOLCHAIN_PATH=/opt/crosstool-ng/x-tools/${TOOLCHAIN}/bin
+ENV PATH=${TOOLCHAIN_PATH}:${PATH}
 
 RUN mkdir -p "${STAGING_DIR}/lib"
 
