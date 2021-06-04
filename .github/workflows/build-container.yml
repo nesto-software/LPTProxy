@@ -1,4 +1,4 @@
-name: Build container
+name: build-container
 on:
   push:
     paths:
@@ -36,5 +36,4 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/lpt-proxy-dev:latest,ghcr.io/${{ github.repository_owner }}/lpt-proxy-dev:${{ env.TOOLCHAIN_RELEASE }}
           context: .devcontainer
-          build-args:
-            TOOLCHAIN_RELEASE: ${{ env.TOOLCHAIN_RELEASE }}
+          build-args: TOOLCHAIN_RELEASE=${{ env.TOOLCHAIN_RELEASE }}
