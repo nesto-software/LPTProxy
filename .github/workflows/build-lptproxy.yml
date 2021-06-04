@@ -1,4 +1,4 @@
-name: Build lptproxy
+name: build-binaries
 on:
   push:
     paths-ignore:
