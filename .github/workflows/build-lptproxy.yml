@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-lptproxy-gg:
+  build-lptproxy:
     runs-on: 'ubuntu-20.04'
     container:
       image: ghcr.io/${{ github.repository_owner }}/lpt-proxy-dev:latest
